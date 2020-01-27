@@ -19,7 +19,7 @@ class rtvrt_Dataloader:
 		self.get_names()
 		self.get_dict()
 
-		
+
 	def get_names(self):
 		for i in self.files:
 			if '.txt' in i:
@@ -58,7 +58,7 @@ class rtvrt_Dataloader:
 				record["width"] = width
 				objs=[]
 				for obj in anno:
-					xmin,ymin,xmax,ymax= yolo_to_voc(img,obj[0].split())
+					xmin,ymin,xmax,ymax= self.yolo_to_voc(img,obj[0].split())
 					obj= {
 					'bbox': [xmin,ymin,xmax,ymax],
 					'bbox_mode': BoxMode.XYXY_ABS,
