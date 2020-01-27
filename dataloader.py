@@ -1,0 +1,76 @@
+import os,glob
+import numpy as np
+import cv2
+import uuid
+from detectron2.structures import BoxMode\
+
+
+class rtvrt_Dataloader:
+
+	def __init__(self,img_dir,objfile):
+		self.img_dir = img_dir
+		self.obj_file = objfile
+		self.files = os.listdir(img_dir)
+		self.names = []
+		self.dataset_dicts=[]
+		self.labels = []
+
+	def get_names(self):
+		for i in self.files:
+			if '.txt' in i:
+				names.append(i.split('.')[0])
+
+	def yolo_to_voc(self,img,data):
+		height, width, _ = img.shape
+
+		voc = []
+		bbox_width = float(data[3]) * width
+		bbox_height = float(data[4]) * height
+		center_x = float(data[1]) * width
+		center_y = float(data[2]) * height
+		voc.append(center_x - (bbox_width / 2))
+		voc.append(center_y - (bbox_height / 2))
+		voc.append(center_x + (bbox_width / 2))
+		voc.append(center_y + (bbox_height / 2))
+
+		xmin,ymin,xmax,ymax = int(voc[0]),int(voc[1]),int(voc[2]),int(voc[3])
+		
+		return xmin,ymin,xmax,ymax
+
+	def get_dict(self):
+		names= get_names() 
+
+		for name in names:
+			with open(self.img_dir+name+'.txt', 'r') as file:
+				anno = [line.strip().split(',') for line in file]
+				record = {}
+
+				img = cv2.imread(self.img_dir+name+'.jpg')
+				height, width, _ = img.shape
+				record["file_name"] = name+'.jpg'
+				record["image_id"] = name+'.jpg'+uuid.uuid4().hex[:10]
+				record["height"] = height
+				record["width"] = width
+				objs=[]
+				for obj in anno:
+					xmin,ymin,xmax,ymax= yolo_to_voc(img,obj[0].split())
+					obj= {
+					'bbox': [xmin,ymin,xmax,ymax],
+					'bbox_mode': BoxMode.XYXY_ABS,
+					'category_id': anno[0],
+					"iscrowd": 0
+					}
+					objs.append(obj)
+
+			record["annotations"] = objs
+			self.dataset_dicts.append(record)
+
+	def get_classes(self):
+		with open(self.objfile) as file:
+			anno = [line.strip().split(',') for line in file]
+			for i in anno:
+				self.labels.append(i[0])
+
+
+
+	
