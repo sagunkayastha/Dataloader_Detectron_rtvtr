@@ -36,6 +36,7 @@ def main():
 	
 
 	Data = rtvrt_Dataloader(img_dir, objfile)
+	Data.get_dict()
 	dict_ = Data.dataset_dicts
 	classes = Data.labels
 
