@@ -61,7 +61,7 @@ def get_dict(names):
 				'category_id': anno[0],
 				"iscrowd": 0
 				}
-				objs.append(dic)
+				objs.append(obj)
 
 		record["annotations"] = objs
 		dataset_dicts.append(record)
