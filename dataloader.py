@@ -38,7 +38,7 @@ class rtvrt_Dataloader:
 		return xmin,ymin,xmax,ymax
 
 	def get_dict(self):
-		names= get_names() 
+		names= self.get_names() 
 
 		for name in names:
 			with open(self.img_dir+name+'.txt', 'r') as file:
