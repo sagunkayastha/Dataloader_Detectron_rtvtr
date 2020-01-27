@@ -36,7 +36,7 @@ def main():
 	
 
 	Data = rtvrt_Dataloader(img_dir, objfile)
-	Data.get_dict()
+	
 	dict_ = Data.dataset_dicts
 	classes = Data.labels
 
@@ -47,7 +47,7 @@ def main():
 	rtvtr_metadata = MetadataCatalog.get("rtvtr_train")
 
 
-
+	exit()
 	
 
 	cfg = get_cfg()
