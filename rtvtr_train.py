@@ -39,8 +39,7 @@ def main():
 	
 	dict_ = Data.dataset_dicts
 	classes = Data.labels
-	print(classes)
-	exit()
+	
 	for d in ["train", "val"]:
 		DatasetCatalog.register("rtvtr_" + d, lambda d=d: dict_)
 		MetadataCatalog.get("rtvtr_" + d).set(thing_classes=classes)
