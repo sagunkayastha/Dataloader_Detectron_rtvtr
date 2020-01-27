@@ -47,7 +47,7 @@ def main():
 	rtvtr_metadata = MetadataCatalog.get("rtvtr_train")
 
 
-	exit()
+	
 	
 
 	cfg = get_cfg()
