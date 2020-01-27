@@ -34,7 +34,7 @@ from rtvtr_config import *
 def main():
 	
 	
-
+	
 	Data = rtvrt_Dataloader(img_dir, objfile)
 	
 	dict_ = Data.dataset_dicts

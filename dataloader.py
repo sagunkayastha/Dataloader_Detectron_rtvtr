@@ -9,7 +9,7 @@ class rtvrt_Dataloader:
 
 	def __init__(self,img_dir,objfile):
 		self.img_dir = img_dir
-		self.obj_file = objfile
+		self.objfile = objfile
 		self.files = os.listdir(img_dir)
 		self.names = []
 		self.dataset_dicts=[]
