@@ -18,7 +18,7 @@ class rtvrt_Dataloader:
 		## RUN
 		self.get_names()
 		self.get_dict()
-
+		self.get_classes()
 
 	def get_names(self):
 		for i in self.files:
