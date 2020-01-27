@@ -34,8 +34,8 @@ def main():
 	Data = rtvrt_Dataloader(img_dir, objfile)
 
 	for d in ["train", "val"]:
-    DatasetCatalog.register("rtvtr_" + d, lambda d=d: get_dict(names))
-    MetadataCatalog.get("rtvtr_" + d).set(thing_classes=classes)
+		DatasetCatalog.register("rtvtr_" + d, lambda d=d: get_dict(names))
+		MetadataCatalog.get("rtvtr_" + d).set(thing_classes=classes)
 
 	rtvtr_metadata = MetadataCatalog.get("rtvtr_train")
 
@@ -60,4 +60,5 @@ def main():
 	trainer.resume_or_load(resume=resume)
 	trainer.train()
 	
-	
+if __name__ == "__main__": 
+	main()
