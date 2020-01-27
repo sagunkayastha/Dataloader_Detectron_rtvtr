@@ -19,6 +19,7 @@ class rtvrt_Dataloader:
 		for i in self.files:
 			if '.txt' in i:
 				self.names.append(i.split('.')[0])
+		return names
 
 	def yolo_to_voc(self,img,data):
 		height, width, _ = img.shape
@@ -39,7 +40,7 @@ class rtvrt_Dataloader:
 
 	def get_dict(self):
 		names= self.get_names() 
-
+		print(names)
 		for name in names:
 			with open(self.img_dir+name+'.txt', 'r') as file:
 				anno = [line.strip().split(',') for line in file]
@@ -70,6 +71,7 @@ class rtvrt_Dataloader:
 			anno = [line.strip().split(',') for line in file]
 			for i in anno:
 				self.labels.append(i[0])
+
 
 
 

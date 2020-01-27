@@ -1,11 +1,13 @@
-import detectron2
-from detectron2.utils.logger import setup_logger
-setup_logger()
-
 # import some common libraries
 import numpy as np
 import cv2
 import random
+
+import detectron2
+from detectron2.utils.logger import setup_logger
+setup_logger()
+
+
 
 
 # import some common detectron2 utilities
@@ -18,22 +20,24 @@ from detectron2.data import MetadataCatalog
 
 ### c####
 
-from dataloader import rtvrt_Dataloader
+
 
 from detectron2.data import DatasetCatalog, MetadataCatalog
 
 from detectron2.engine import DefaultTrainer
 from detectron2.config import get_cfg
 from detectron2 import model_zoo
-from rtvtr_config import *
 
+
+from dataloader import rtvrt_Dataloader
+from rtvtr_config import *
 def main():
 	
 	
 
 	Data = rtvrt_Dataloader(img_dir, objfile)
-	dict_ = Data.get_dict()
-	classes = Data.get_classes()
+	dict_ = Data.dataset_dicts
+	classes = Data.labels
 
 	for d in ["train", "val"]:
 		DatasetCatalog.register("rtvtr_" + d, lambda d=d: dict_)
