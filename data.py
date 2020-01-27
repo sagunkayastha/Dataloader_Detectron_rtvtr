@@ -51,6 +51,7 @@ def get_dict(names):
 			record["image_id"] = name+'.jpg'+uuid.uuid4().hex[:10]
 			record["height"] = height
 			record["width"] = width
+			objs=[]
 			for obj in anno:
 				
 				xmin,ymin,xmax,ymax= yolo_to_voc(img,obj[0].split())
