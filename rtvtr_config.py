@@ -1,4 +1,4 @@
-img_dir = 'to_send/'
+img_dir = '/home/ubuntu/rtvtr/Darknet_v3_test/darknet/data/obj/'
 objfile = 'obj.names'
 
 resume = False
