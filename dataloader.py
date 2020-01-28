@@ -72,6 +72,10 @@ class rtvrt_Dataloader:
 					"iscrowd": 0
 					}
 					objs.append(objx)
+					
+					#remove later
+					if int(obj[0][0]) > 10:
+						print('hello')
 
 			record["annotations"] = objs
 			self.dataset_dicts.append(record)
