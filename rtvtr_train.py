@@ -70,7 +70,7 @@ def main():
 	cfg.SOLVER.IMS_PER_BATCH = 2
 	cfg.SOLVER.BASE_LR = 0.0001  # pick a good LR
 	cfg.SOLVER.MAX_ITER = 50000
-	cfg.SOLVER.STEPS = (5000)
+	cfg.SOLVER.STEPS = (5000,)
 	cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 512   # (default: 512)
 	cfg.MODEL.ROI_HEADS.NUM_CLASSES = 18
 	# cfg.OUTPUT_DIR = "./checkpoints/"
