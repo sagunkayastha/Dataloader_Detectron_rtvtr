@@ -68,7 +68,7 @@ class rtvrt_Dataloader:
 					objx= {
 					'bbox': [xmin,ymin,xmax,ymax],
 					'bbox_mode': BoxMode.XYXY_ABS,
-					'category_id': obj[0][0],
+					'category_id': int(obj[0][0]),
 					"iscrowd": 0
 					}
 					objs.append(objx)
