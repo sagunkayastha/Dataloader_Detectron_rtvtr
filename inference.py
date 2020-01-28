@@ -43,7 +43,7 @@ cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5
 cfg.DATASETS.TEST = ("rtvtr_val", )
 predictor = DefaultPredictor(cfg)
 
-
+print(type(predictor))
 from detectron2.utils.visualizer import ColorMode
 
 for d in random.sample(dict_, 3):    
