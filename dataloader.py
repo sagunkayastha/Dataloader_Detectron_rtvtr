@@ -23,13 +23,11 @@ class rtvrt_Dataloader:
 	def get_names(self):
 		for i in self.files:
 			if '.txt' in i:
-				self.names.append(i.split('.')[0])
-		
+				self.names.append(i.split('.')[0]
 
 	def yolo_to_voc(self,img,data,name):
-		
+
 		height, width, _ = img.shape
-		
 
 		voc = []
 		bbox_width = float(data[3]) * width
@@ -42,7 +40,7 @@ class rtvrt_Dataloader:
 		voc.append(center_y + (bbox_height / 2))
 
 		xmin,ymin,xmax,ymax = int(voc[0]),int(voc[1]),int(voc[2]),int(voc[3])
-		
+
 		return xmin,ymin,xmax,ymax
 
 	def get_dict(self):
@@ -55,9 +53,9 @@ class rtvrt_Dataloader:
 				record = {}
 
 				img = cv2.imread(self.img_dir+name+'.jpg')
-				
+
 				height, width, _ = img.shape
-				
+
 				record["file_name"] = self.img_dir+name+'.jpg'
 				record["image_id"] = name+'.jpg'+uuid.uuid4().hex[:10]
 				record["height"] = height
@@ -72,8 +70,8 @@ class rtvrt_Dataloader:
 					"iscrowd": 0
 					}
 					objs.append(objx)
-					
-					
+
+
 
 			record["annotations"] = objs
 			self.dataset_dicts.append(record)
@@ -83,8 +81,3 @@ class rtvrt_Dataloader:
 			anno = [line.strip().split(',') for line in file]
 			for i in anno:
 				self.labels.append(i[0])
-
-
-
-
-	

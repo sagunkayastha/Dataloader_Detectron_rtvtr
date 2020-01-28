@@ -89,17 +89,7 @@ def get_dict(names):
 
 from detectron2.data import DatasetCatalog, MetadataCatalog
 
-classes_o = ['car','bus',
-'motorbike',
-'pickup',
-'license_plate',
-'taxi',
-'state_plate',
-'truck',
-'van',
-'scooter',
-'micro_bus',
-'tripper',
+classes_o = ['car','bus','motorbike','pickup','license_plate','taxi','state_plate','truck','van','scooter','micro_bus','tripper',
 'heavy_equipment_vehicle',
 'tempo',
 'police_vehicle',

@@ -26,7 +26,7 @@ print("Data Loaded from Pkl")\
 
 DatasetCatalog.register("rtvtr_val", lambda d='val': dict_)
 MetadataCatalog.get("rtvtr_val").set(thing_classes=classes)
-		
+
 rtvtr_metadata = MetadataCatalog.get("rtvtr_val")
 
 
@@ -46,7 +46,7 @@ predictor = DefaultPredictor(cfg)
 print(type(predictor))
 from detectron2.utils.visualizer import ColorMode
 i=0
-for d in dict_:    
+for d in dict_:
     img = cv2.imread(d["file_name"])
     visualizer = Visualizer(img[:, :, ::-1], metadata=rtvtr_metadata, scale=0.5)
     vis = visualizer.draw_dataset_dict(d)
