@@ -27,7 +27,10 @@ class rtvrt_Dataloader:
 		
 
 	def yolo_to_voc(self,img,data):
-		height, width, _ = img.shape
+		try:
+			height, width, _ = img.shape
+		except:
+			print(self.img_dir+name)
 
 		voc = []
 		bbox_width = float(data[3]) * width
