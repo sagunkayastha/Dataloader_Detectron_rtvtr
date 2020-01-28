@@ -24,7 +24,7 @@ print(len(dict_))
 print("Data Loaded from Pkl")\
 
 
-DatasetCatalog.register("rtvtr_val", lambda d=val: dict_)
+DatasetCatalog.register("rtvtr_val", lambda d='val': dict_)
 MetadataCatalog.get("rtvtr_val").set(thing_classes=classes)
 		
 rtvtr_metadata = MetadataCatalog.get("rtvtr_val")
