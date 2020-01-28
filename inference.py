@@ -51,4 +51,4 @@ for d in dict_:
     visualizer = Visualizer(img[:, :, ::-1], metadata=rtvtr_metadata, scale=0.5)
     vis = visualizer.draw_dataset_dict(d)
     i+=1
-	cv2.imwrite('AI/test_'+str(i)+'.jpg',v.get_image()[:, :, ::-1])
+	cv2.imwrite('AI/test_'+str(i)+'.jpg',vis.get_image()[:, :, ::-1])
