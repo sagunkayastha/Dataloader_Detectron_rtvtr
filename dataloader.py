@@ -63,15 +63,15 @@ class rtvrt_Dataloader:
 				record["height"] = height
 				record["width"] = width
 				objs=[]
-				for obj in anno:
+				for objx in anno:
 					xmin,ymin,xmax,ymax= self.yolo_to_voc(img,obj[0].split(),name)
-					obj= {
+					objx= {
 					'bbox': [xmin,ymin,xmax,ymax],
 					'bbox_mode': BoxMode.XYXY_ABS,
 					'category_id': obj[0],
 					"iscrowd": 0
 					}
-					objs.append(obj)
+					objs.append(objx)
 
 			record["annotations"] = objs
 			self.dataset_dicts.append(record)
