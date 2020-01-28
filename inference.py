@@ -46,9 +46,9 @@ predictor = DefaultPredictor(cfg)
 print(type(predictor))
 from detectron2.utils.visualizer import ColorMode
 i=0
-for d in random.sample(dict_, 3):    
+for d in dict_:    
     img = cv2.imread(d["file_name"])
-    visualizer = Visualizer(img[:, :, ::-1], metadata=fruits_nuts_metadata, scale=0.5)
+    visualizer = Visualizer(img[:, :, ::-1], metadata=rtvtr_metadata, scale=0.5)
     vis = visualizer.draw_dataset_dict(d)
     i+=1
 	cv2.imwrite('AI/test_'+str(i)+'.jpg',v.get_image()[:, :, ::-1])
