@@ -39,14 +39,15 @@ def main():
 	
 	dict_ = Data.dataset_dicts
 	classes = Data.labels
-	
+	print(dict_)
+	exit()
 	with open('data.p', 'wb') as fp:
 		pickle.dump(dict_, fp, protocol=pickle.HIGHEST_PROTOCOL)
 
 	for d in ["train", "val"]:
 		DatasetCatalog.register("rtvtr_" + d, lambda d=d: dict_)
 		MetadataCatalog.get("rtvtr_" + d).set(thing_classes=classes)
-		MetadataCatalog.get("rtvtr_" + d).thing_dataset_id_to_contiguous_id=cid
+		
 	rtvtr_metadata = MetadataCatalog.get("rtvtr_train")
 
 
