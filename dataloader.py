@@ -16,8 +16,8 @@ class rtvrt_Dataloader:
 		self.labels = []
 
 		## RUN
-		self.get_names()
-		self.get_dict()
+		# self.get_names()
+		# self.get_dict()
 		self.get_classes()
 
 	def get_names(self):

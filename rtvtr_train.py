@@ -37,11 +37,21 @@ def main():
 
 	Data = rtvrt_Dataloader(img_dir, objfile)
 	
-	dict_ = Data.dataset_dicts
-	classes = Data.labels
-	
-	with open('data.p', 'wb') as fp:
-		pickle.dump(dict_, fp, protocol=pickle.HIGHEST_PROTOCOL)
+	if Load_from_file == False:
+		Data.get_names()
+		Data.get_dict()
+		dict_ = Data.dataset_dicts
+		classes = Data.labels
+		print("Data Loaded from folder")
+		with open('data.p', 'wb') as fp:
+			pickle.dump(dict_, fp, protocol=pickle.HIGHEST_PROTOCOL)
+
+	else:
+		with open('data.p', 'rb') as fp:
+    		data = pickle.load(fp)
+		dict_ = data
+		classes = Data.labels
+		print("Data Loaded from Pkl")
 
 	for d in ["train", "val"]:
 		DatasetCatalog.register("rtvtr_" + d, lambda d=d: dict_)
