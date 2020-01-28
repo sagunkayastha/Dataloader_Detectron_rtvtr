@@ -39,8 +39,7 @@ def main():
 	
 	dict_ = Data.dataset_dicts
 	classes = Data.labels
-	print(dict_)
-	exit()
+	
 	with open('data.p', 'wb') as fp:
 		pickle.dump(dict_, fp, protocol=pickle.HIGHEST_PROTOCOL)
 
