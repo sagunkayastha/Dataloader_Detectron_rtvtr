@@ -45,8 +45,8 @@ def main():
 
 	for d in ["train", "val"]:
 		DatasetCatalog.register("rtvtr_" + d, lambda d=d: dict_)
-		MetadataCatalog.get("rtvtr_" + d).set(thing_classes=classes,thing_dataset_id_to_contiguous_id=cid)
-
+		MetadataCatalog.get("rtvtr_" + d).set(thing_classes=classes)
+		MetadataCatalog.get("rtvtr_" + d).thing_dataset_id_to_contiguous_id=cid
 	rtvtr_metadata = MetadataCatalog.get("rtvtr_train")
 
 
