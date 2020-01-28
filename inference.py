@@ -1,6 +1,6 @@
 from detectron2.engine import DefaultTrainer
 from detectron2.config import get_cfg
-import os
+import os,cv2
 from rtvtr_config import *
 import pickle,random
 from detectron2.engine import DefaultPredictor
