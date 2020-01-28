@@ -7,7 +7,7 @@ from detectron2.engine import DefaultPredictor
 
 from detectron2.utils.visualizer import Visualizer
 from detectron2.data import DatasetCatalog, MetadataCatalog
-
+from detectron2 import model_zoo
 
 
 with open('data_val.p', 'rb') as fp:
