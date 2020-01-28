@@ -53,7 +53,7 @@ def main():
 		classes = Data.labels
 		print(len(dict_))
 		print("Data Loaded from Pkl")
-
+	exit()
 	for d in ["train", "val"]:
 		DatasetCatalog.register("rtvtr_" + d, lambda d=d: dict_)
 		MetadataCatalog.get("rtvtr_" + d).set(thing_classes=classes)
