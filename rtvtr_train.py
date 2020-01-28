@@ -41,7 +41,7 @@ def main():
 	classes = Data.labels
 	
 	with open('data.p', 'wb') as fp:
-		pickle.dump(data, fp, protocol=pickle.HIGHEST_PROTOCOL)
+		pickle.dump(dict_, fp, protocol=pickle.HIGHEST_PROTOCOL)
 
 	for d in ["train", "val"]:
 		DatasetCatalog.register("rtvtr_" + d, lambda d=d: dict_)
