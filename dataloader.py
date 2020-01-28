@@ -68,14 +68,12 @@ class rtvrt_Dataloader:
 					objx= {
 					'bbox': [xmin,ymin,xmax,ymax],
 					'bbox_mode': BoxMode.XYXY_ABS,
-					'category_id': int(obj[0][0]),
+					'category_id': int(obj[0].split()[0]),
 					"iscrowd": 0
 					}
 					objs.append(objx)
 					
-					#remove later
-					if int(obj[0][0]) > 10:
-						print('hello')
+					
 
 			record["annotations"] = objs
 			self.dataset_dicts.append(record)
