@@ -23,7 +23,7 @@ class rtvrt_Dataloader:
 	def get_names(self):
 		for i in self.files:
 			if '.txt' in i:
-				self.names.append(i.split('.')[0]
+				self.names.append(i.split('.')[0])
 
 	def yolo_to_voc(self,img,data,name):
 
