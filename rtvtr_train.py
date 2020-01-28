@@ -51,6 +51,7 @@ def main():
 			data = pickle.load(fp)
 		dict_ = data
 		classes = Data.labels
+		print(len(dict_))
 		print("Data Loaded from Pkl")
 
 	for d in ["train", "val"]:
