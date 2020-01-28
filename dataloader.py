@@ -47,7 +47,8 @@ class rtvrt_Dataloader:
 
 	def get_dict(self):
 		names= self.names
-		for name in names:
+		for pp,name in enumerate(names):
+			print(pp)
 			with open(self.img_dir+name+'.txt', 'r') as file:
 				anno = [line.strip().split(',') for line in file]
 				record = {}

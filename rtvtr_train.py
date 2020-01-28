@@ -6,7 +6,7 @@ import os
 import detectron2
 from detectron2.utils.logger import setup_logger
 setup_logger()
-
+import pickle
 
 
 
@@ -40,6 +40,9 @@ def main():
 	dict_ = Data.dataset_dicts
 	classes = Data.labels
 	
+	with open('data.p', 'wb') as fp:
+		pickle.dump(data, fp, protocol=pickle.HIGHEST_PROTOCOL)
+
 	for d in ["train", "val"]:
 		DatasetCatalog.register("rtvtr_" + d, lambda d=d: dict_)
 		MetadataCatalog.get("rtvtr_" + d).set(thing_classes=classes)
