@@ -63,7 +63,7 @@ class rtvrt_Dataloader:
 				record["height"] = height
 				record["width"] = width
 				objs=[]
-				for objx in anno:
+				for obj in anno:
 					xmin,ymin,xmax,ymax= self.yolo_to_voc(img,obj[0].split(),name)
 					objx= {
 					'bbox': [xmin,ymin,xmax,ymax],
