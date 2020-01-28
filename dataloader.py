@@ -26,7 +26,7 @@ class rtvrt_Dataloader:
 				self.names.append(i.split('.')[0])
 		
 
-	def yolo_to_voc(self,img,data):
+	def yolo_to_voc(self,img,data,name):
 		try:
 			height, width, _ = img.shape
 		except:
@@ -64,7 +64,7 @@ class rtvrt_Dataloader:
 				record["width"] = width
 				objs=[]
 				for obj in anno:
-					xmin,ymin,xmax,ymax= self.yolo_to_voc(img,obj[0].split())
+					xmin,ymin,xmax,ymax= self.yolo_to_voc(img,obj[0].split(),name)
 					obj= {
 					'bbox': [xmin,ymin,xmax,ymax],
 					'bbox_mode': BoxMode.XYXY_ABS,
