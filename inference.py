@@ -29,7 +29,7 @@ MetadataCatalog.get("rtvtr_val").set(thing_classes=classes)
 		
 rtvtr_metadata = MetadataCatalog.get("rtvtr_val")
 
-predictor = DefaultPredictor(cfg)
+
 
 
 
