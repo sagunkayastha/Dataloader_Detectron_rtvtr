@@ -48,7 +48,7 @@ def main():
 
 	else:
 		with open('data.p', 'rb') as fp:
-    		data = pickle.load(fp)
+			data = pickle.load(fp)
 		dict_ = data
 		classes = Data.labels
 		print("Data Loaded from Pkl")
