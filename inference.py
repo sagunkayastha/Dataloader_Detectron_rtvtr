@@ -2,7 +2,7 @@ from detectron2.engine import DefaultTrainer
 from detectron2.config import get_cfg
 import os
 from rtvtr_config import *
-import pickle
+import pickle,random
 from detectron2.engine import DefaultPredictor
 
 from detectron2.utils.visualizer import Visualizer
@@ -56,3 +56,4 @@ for d in random.sample(dict_, 3):
     )
     v = v.draw_instance_predictions(outputs["instances"].to("cpu"))
     cv2_imshow(v.get_image()[:, :, ::-1])
+	cv2.waitKey(0)
