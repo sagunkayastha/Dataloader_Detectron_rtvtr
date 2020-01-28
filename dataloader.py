@@ -51,7 +51,10 @@ class rtvrt_Dataloader:
 				record = {}
 
 				img = cv2.imread(self.img_dir+name+'.jpg')
-				height, width, _ = img.shape
+				try:
+					height, width, _ = img.shape
+				except:
+					print(self.img_dir+name)
 				record["file_name"] = self.img_dir+name+'.jpg'
 				record["image_id"] = name+'.jpg'+uuid.uuid4().hex[:10]
 				record["height"] = height
