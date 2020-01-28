@@ -67,15 +67,16 @@ def main():
 	cfg = get_cfg()
 	cfg.merge_from_file(model_zoo.get_config_file("COCO-Detection/faster_rcnn_R_101_FPN_3x.yaml"))
 	cfg.DATASETS.TRAIN = ("rtvtr_train",)
-	cfg.DATASETS.TEST = ()
-	cfg.DATALOADER.NUM_WORKERS = 2
+	cfg.DATASETS.TEST = ("rtvtr_val")
+	cfg.DATALOADER.NUM_WORKERS = 4
 	cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url("COCO-Detection/faster_rcnn_R_101_FPN_3x.yaml")
 	cfg.SOLVER.IMS_PER_BATCH = 2
 	cfg.SOLVER.BASE_LR = 0.00025  # pick a good LR
-	cfg.SOLVER.MAX_ITER = 10000    # 300 iterations seems good enough for this toy dataset; you may need to train longer for a practical dataset
-	cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 512   # faster, and good enough for this toy dataset (default: 512)
-	cfg.MODEL.ROI_HEADS.NUM_CLASSES = 18  # only has one class (ballon)
-
+	cfg.SOLVER.MAX_ITER = 10000    
+	cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 512    (default: 512)
+	cfg.MODEL.ROI_HEADS.NUM_CLASSES = 18  
+	# cfg.OUTPUT_DIR = "./checkpoints/"
+	# cfg.SOLVER.CHECKPOINT_PERIOD = 500
 	os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 	trainer = DefaultTrainer(cfg) 
 	trainer.resume_or_load(resume=resume)
